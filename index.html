@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Paralyzed?</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <header>
+        <!-- Simple header and intro sentence -->
+        <h1>Coffee Paralyzed?</h1>
+        <p>Discover your perfect coffee drink!</p>
+      </header>
+    
+      <main>
+        <!-- Buttons to select pickForMe and helpMePick - 
+         initial idea is to select these and depending on selection unhide either the questionnaire or inform drink choice. -->
+        <section id="mainChoice">
+          <button id="pickForMe">Let the Coffee Gods Decide!</button>
+          <button id="helpMePick">Guide My Coffee Journey!</button>
+        </section>
+    
+        <!-- Questionnaire Section with drop down selectors with a class="hidden" which can be used to display this portion when selecting Help Me Pick! 
+         Options to be stored in JS. -->
+        <section id="questionnaire" class="hidden">
+          <h2>Brew Your Perfect Blend</h2>
+    
+          <div>
+            <label for="tempOptions">Temperature</label>
+            <select id="tempOptions"></select>
+          </div>
+    
+          <div>
+            <label for="milkOptions">Milk Options</label>
+            <select id="milkOptions"></select>
+          </div>
+    
+          <div>
+            <label for="coffeeType">Type of Coffee Drink</label>
+            <select id="coffeeType"></select>
+          </div>
+    
+          <div>
+            <label for="flavorOptions">Flavors</label>
+            <select id="flavorOptions"></select>
+          </div>
+    
+          <button id="brewButton">Brew</button>
+        </section>
+    
+        <!-- Randomized Result Section with a class="hidden" which can be used to reveal this when selecting Help Me Pick!-->
+        <section id="randomResult" class="hidden">
+          <h2>Voilà! Your Coffee Adventure Awaits!</h2>
+          <p id="randomCoffeeChoice"></p>
+          <button id="newRandom">Try Your Luck with Another Brew!</button>
+        </section>
+      </main>
+    
+      <!-- Super basic footer -->
+      <footer>
+        <p>2024 Coffee Paralyzed?</p>
+      </footer>    
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
