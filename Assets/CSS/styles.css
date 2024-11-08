@@ -1,0 +1,12 @@
+:root{
+    --main: #DBC1AA;
+    --beige: #A67B5B;
+    --light-brown: #6F4E37;
+    --red-brown: #633F33;
+
+}
+
+main {
+    background-color: var(--main);
+    height
+}
