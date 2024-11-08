@@ -8,5 +8,22 @@
 
 main {
     background-color: var(--main);
-    height
+    min-height: 100vh;
+}
+
+.row {
+    flex-direction: column;
+}
+
+.form-select {
+    width: 20%;
+}
+
+#questionnaire {
+    border: solid;
+}
+
+
+.btn {
+    margin: 1% 1% 0 0;
 }
