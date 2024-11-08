@@ -1,6 +1,8 @@
 // TODO java script structure 
 
+
 //TODO create variables with a selection query that selects elements from the HTML doc
+
 
 const randomButton = document.querySelector("#pickForMe"); // select the pick for me element in HTML 
 let randomCoffeeType =  ["Espresso", "Latte", "Cappuccino", "Mocha", "Americano"]; // array of coffee types 
@@ -44,4 +46,4 @@ const coffee = {
 
 // TODO create method 
 
-// TODOcreate event listener for button presses and call functions to run when event happens 
+// TODOcreate event listener for button presses and call functions to run when event 
