@@ -3,25 +3,34 @@
 
 //TODO create variables with a selection query that selects elements from the HTML doc
 
-let randomButton = document.querySelector("#pickForMe");
- 
- let randomCoffeeType =  ["Espresso", "Latte", "Cappuccino", "Mocha", "Americano"];
+
+const randomButton = document.querySelector("#pickForMe"); // select the pick for me element in HTML 
+let randomCoffeeType =  ["Espresso", "Latte", "Cappuccino", "Mocha", "Americano"]; // array of coffee types 
+
+
+
+
+
+function addDropDownMenu(array) {
+
+}
+
 function pickRandomCoffee (randomCoffeeType) {
-    // Get a random index
+    // Get a random index and store it 
 const randomIndex = Math.floor(Math.random() * randomCoffeeType.length);
-
 // Use the random index to access an item in the array
-let randomCoffee = randomCoffeeType[randomIndex];
-
+const randomCoffee = randomCoffeeType[randomIndex];
 console.log(randomCoffee);
-
 return randomCoffee;
- };
+ }
+  
+ // add event listener for the random button 
  randomButton.addEventListener("click", () => pickRandomCoffee(randomCoffeeType));
-//  addEventListener('click', pickRandomCoffee);
 
+// object 
 const coffee = {
 
+    name: undefined,
     temp:  undefined,
     milk: undefined,
     type: undefined ,
