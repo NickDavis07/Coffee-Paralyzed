@@ -19,11 +19,21 @@ main {
     width: 20%;
 }
 
-#questionnaire {
-    border: solid;
+/* added simple addition to make the spacing appear better. Though if we are using Bootstrap for this then can delete */
+#mainChoice {
+    padding-top:10px;
 }
 
+#questionnaire {
+    border: solid;
+    /* added some margin to make it look a little visually better. Though if we are using Bootstrap for this then we can delete */
+    margin-top: 10px;
+}
 
 .btn {
     margin: 1% 1% 0 0;
+}
+
+.hidden {
+    display: none;
 }

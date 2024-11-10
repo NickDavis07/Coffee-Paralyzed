@@ -1,13 +1,8 @@
-// TODO java script structure 
-
-
 //TODO create variables with a selection query that selects elements from the HTML doc
-
-
+const helpMePickButton = document.getElementById("helpMePick"); //Used for the Guide My Coffee Journey! button. 
+const questionnaireSection = document.getElementById("questionnaire");
 const randomButton = document.querySelector("#pickForMe"); // select the pick for me element in HTML 
 let randomCoffeeType =  ["Espresso", "Latte", "Cappuccino", "Mocha", "Americano"]; // array of coffee types 
-
-
 
 
 
@@ -35,15 +30,27 @@ const coffee = {
     milk: undefined,
     type: undefined ,
     flavors: undefined
-
 }
 
 
-// TODO create other varibles possably needed for the code
+// TODO create other variables possibly needed for the code
 
 
-// TODO create coffee to recomend object 
+// TODO create coffee to recommend object 
 
 // TODO create method 
 
-// TODOcreate event listener for button presses and call functions to run when event 
+// TODO create event listener for button presses and call functions to run when event 
+
+
+// Function to show or hide the questionnaire. Questionnaire is hidden by default and displays when the Guide My Coffee Journey button is clicked.
+function toggleQuestionnaire() {
+    if (questionnaireSection.classList.contains("hidden")) {
+        questionnaireSection.classList.remove("hidden");
+    } else {
+        questionnaireSection.classList.add("hidden");
+    }
+}
+
+// EvenListener that displays the Questionnaire when clicking Guide My Coffee Journey!
+helpMePickButton.addEventListener("click", toggleQuestionnaire);
