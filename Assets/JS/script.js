@@ -54,3 +54,14 @@ function toggleQuestionnaire() {
 
 // EvenListener that displays the Questionnaire when clicking Guide My Coffee Journey!
 helpMePickButton.addEventListener("click", toggleQuestionnaire);
+
+
+
+
+// This is for the modal to pop up
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
