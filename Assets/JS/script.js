@@ -2,6 +2,11 @@
 const helpMePickButton = document.getElementById("helpMePick"); //Used for the Guide My Coffee Journey! button. 
 const questionnaireSection = document.getElementById("questionnaire");
 const randomButton = document.querySelector("#pickForMe"); // select the pick for me element in HTML 
+const coffeeTypeSelect = document.getElementById("coffeeType").querySelector("select");
+const tempOptionsSelect = document.getElementById("tempOptions").querySelector("select");
+const milkOptionsSelect = document.getElementById("milkOptions").querySelector("select");
+const flavorOptionsSelect = document.getElementById("flavorOptions").querySelector("select");
+
 // let randomCoffeeType =  ["Espresso", "Latte", "Cappuccino", "Mocha", "Americano"]; // array of coffee types
 
 // function pickRandomCoffee (randomCoffeeType) {
@@ -40,7 +45,7 @@ const coffeeTypes = [
   ];
 
   const milkOptions = [
-    'Skim Millk', 
+    'Skim Milk', 
     '2% Milk', 
     'Oat Milk', 
   ];
@@ -72,21 +77,37 @@ const coffeeTypes = [
   document.getElementById('generate-coffee').addEventListener('click', generateCoffee);
 
 
+  // this function should add elements and ammend them to the html page 
+  function renderDropdownOptions() {
+    // Define a helper function to populate a dropdown with options
+    function populateSelect(selectElement, optionsArray) {
+      // Clear any existing options before adding new ones
+      selectElement.innerHTML = ""; 
+      
+      // Add a default option
+      const defaultOption = document.createElement("option");
+      defaultOption.textContent = "Select an option";
+      defaultOption.value = ""; // empty value for default option 
+      selectElement.appendChild(defaultOption);
+  
+      // Add each option from the optionsArray
+      optionsArray.forEach(optionText => {
+        const option = document.createElement('option');
+        option.value = optionText; // sets the value attribute 
+        option.textContent = optionText; // sets visible text
+        selectElement.appendChild(option); // appends option to the dropDown
+      });
+    }
+  
+    // Populate each dropdown in the questionnaire with relevant options
+    populateSelect(coffeeTypeSelect, coffeeTypes);      // Fill coffeeTypeSelect with coffee types
+    populateSelect(tempOptionsSelect, tempOptions);      // Fill tempOptionsSelect with temperature options
+    populateSelect(milkOptionsSelect, milkOptions);      // Fill milkOptionsSelect with milk options
+    populateSelect(flavorOptionsSelect, coffeeFlavors);  // Fill flavorOptionsSelect with flavor options
+  }
 
 
 
-// function addDropDownMenu(array) {
-
-// }
-
-// TODO create other variables possibly needed for the code
-
-
-// TODO create coffee to recommend object 
-
-// TODO create method 
-
-// TODO create event listener for button presses and call functions to run when event 
 
 
 // Function to show or hide the questionnaire. Questionnaire is hidden by default and displays when the Guide My Coffee Journey button is clicked.
@@ -96,6 +117,7 @@ function toggleQuestionnaire() {
     } else {
         questionnaireSection.classList.add("hidden");
     }
+    renderDropdownOptions();
 }
 
 // EvenListener that displays the Questionnaire when clicking Guide My Coffee Journey!
