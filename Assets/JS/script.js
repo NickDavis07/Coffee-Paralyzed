@@ -2,36 +2,82 @@
 const helpMePickButton = document.getElementById("helpMePick"); //Used for the Guide My Coffee Journey! button. 
 const questionnaireSection = document.getElementById("questionnaire");
 const randomButton = document.querySelector("#pickForMe"); // select the pick for me element in HTML 
-let randomCoffeeType =  ["Espresso", "Latte", "Cappuccino", "Mocha", "Americano"]; // array of coffee types 
+// let randomCoffeeType =  ["Espresso", "Latte", "Cappuccino", "Mocha", "Americano"]; // array of coffee types
 
-
-
-function addDropDownMenu(array) {
-
-}
-
-function pickRandomCoffee (randomCoffeeType) {
-    // Get a random index and store it 
-const randomIndex = Math.floor(Math.random() * randomCoffeeType.length);
-// Use the random index to access an item in the array
-const randomCoffee = randomCoffeeType[randomIndex];
-console.log(randomCoffee);
-return randomCoffee;
- }
+// function pickRandomCoffee (randomCoffeeType) {
+//     // Get a random index and store it 
+// const randomIndex = Math.floor(Math.random() * randomCoffeeType.length);
+// // Use the random index to access an item in the array
+// const randomCoffee = randomCoffeeType[randomIndex];
+// console.log(randomCoffee);
+// return randomCoffee;
+//  }
   
- // add event listener for the random button 
- randomButton.addEventListener("click", () => pickRandomCoffee(randomCoffeeType));
+// //  add event listener for the random button 
+//  randomButton.addEventListener("click", () => pickRandomCoffee(randomCoffeeType));
 
-// object 
-const coffee = {
+// // object 
+// const coffee = {
 
-    name: undefined,
-    temp:  undefined,
-    milk: undefined,
-    type: undefined ,
-    flavors: undefined
-}
+//     name: undefined,
+//     temp:  undefined,
+//     milk: undefined,
+//     type: undefined ,
+//     flavors: undefined
+// }
 
+//arrays of coffee types, flavors, milk options, and temperature options
+const coffeeTypes = [
+    'Americano', 
+    'Latte', 
+    'Drip Coffee', 
+  ];
+
+  const coffeeFlavors = [
+    'Vanilla', 
+    'Caramel', 
+    'Chocolate', 
+  ];
+
+  const milkOptions = [
+    'Skim Millk', 
+    '2% Milk', 
+    'Oat Milk', 
+  ];
+
+  const tempOptions = [
+    'Hot', 
+    'Iced', 
+    'Blended', 
+  ];
+
+  function getRandomChoice(array) {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+  }
+
+  // generate random coffee
+  function generateCoffee() {
+    const milk = getRandomChoice(milkOptions);
+    const coffeeType = getRandomChoice(coffeeTypes);
+    const flavor = getRandomChoice(coffeeFlavors);
+    const temperature = getRandomChoice(tempOptions);
+
+    // result string
+    const result = `FRESH BREWED: ${tempOptions} ${coffeeFlavors} ${coffeeTypes} with ${milkOptions}`;
+    document.getElementById('coffee-result').innerHTML = result;
+  }
+
+  // Event listener to trigger the coffee generation when button is clicked
+  document.getElementById('generate-coffee').addEventListener('click', generateCoffee);
+
+
+
+
+
+// function addDropDownMenu(array) {
+
+// }
 
 // TODO create other variables possibly needed for the code
 
@@ -56,8 +102,6 @@ function toggleQuestionnaire() {
 helpMePickButton.addEventListener("click", toggleQuestionnaire);
 
 
-
-
 // This is for the modal to pop up
 const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
@@ -65,3 +109,4 @@ const myInput = document.getElementById('myInput')
 myModal.addEventListener('shown.bs.modal', () => {
   myInput.focus()
 })
+
