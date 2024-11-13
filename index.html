@@ -19,8 +19,11 @@
       <main>
         <!-- Buttons to select pickForMe and helpMePick - 
          initial idea is to select these and depending on selection unhide either the questionnaire or inform drink choice. -->
-        <section id="mainChoice">
-          <button id="pickForMe">Let the Coffee Gods Decide!</button>
+        <section id="mainChoice"></section>
+          <h1>Random Coffee Generator</h1>
+          <button id="generate-coffee">Wild Card</button>
+          <div class="coffee-result" id="coffee-result"></div>
+          
           <button id="helpMePick">Guide My Coffee Journey!</button>
         </section>
     
@@ -35,56 +38,28 @@
             <label for="tempOptions" class="col-md-2 col-form-label">Temperature:</label>
             <div class="col-auto" id="tempOptions">
               <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-              <select class="form-select" id="autoSizingSelect, tempOptions">
-                <option selected>Please select...</option>
-                <option value="hot">Hot</option>
-                <option value="iced">Iced</option>
-                <option value="blended">Blended</option>
+              <select class="form-select" id="autoSizingSelect, tempOptions" placeholder="no preference">
               </select>
             </div>
 
             <label for="milkOptions" class="col-md-2 col-form-label">Milk Options:</label>
             <div class="col-auto" id="milkOptions">
               <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-              <select class="form-select" id="autoSizingSelect, milkOptions">
-                <option selected>Please select...</option>
-                <option value="breve">Breve</option>
-                <option value="skim">Skim</option>
-                <option value="oat">Oat</option>
-                <option value="almond">Almond</option>
-                <option value="soy">Soy</option>
+              <select class="form-select" id="autoSizingSelect, milkOptions" placeholder="no preference">
               </select>
             </div>
 
             <label for="coffeeType" class="col-auto col-form-label">Type of Coffee Drink:</label>
             <div class="col-auto" id="coffeeType">
               <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-              <select class="form-select" id="autoSizingSelect, coffeeType">
-                <option selected>Please select...</option>
-                <option value="latte">Latte</option>
-                <option value="espresso">Espresso</option>
-                <option value="cappuccino">Cappuccino</option>
-                <option value="americano">Americano</option>
-                <option value="mocha">Mocha</option>
+              <select class="form-select" id="autoSizingSelect, coffeeType" placeholder="no preference">
               </select>
             </div>
 
             <label for="flavorOptions" class="col-md-2 col-form-label">Flavors:</label>
             <div class="col-auto" id="flavorOptions">
               <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-              <select class="form-select" id="autoSizingSelect, flavorOptions">
-                <option selected>Please select...</option>
-                <option value="vanilla">Vanilla</option>
-                <option value="mocha">Mocha</option>
-                <option value="whiteMocha">White Mocha</option>
-                <option value="caramel">Caramel</option>
-                <option value="hazelnut">Hazelnut</option>
-                <option value="pumpkinSpice">Pumpkin Spice</option>
-                <option value="peppermint">Peppermint</option>
-                <option value="cinnamon">Cinnamon</option>
-                <option value="rasberry">Rasberry</option>
-                <option value="toffeenut">Toffeenut</option>
-                
+              <select class="form-select" id="autoSizingSelect, flavorOptions" placeholder="no preference">
               </select>
             </div>
             <div class="col-12">
