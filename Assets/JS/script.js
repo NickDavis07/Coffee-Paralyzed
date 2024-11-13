@@ -40,7 +40,7 @@ const coffeeTypes = [
   ];
 
   const milkOptions = [
-    'Skim Millk', 
+    'Skim Milk', 
     '2% Milk', 
     'Oat Milk', 
   ];
@@ -50,6 +50,10 @@ const coffeeTypes = [
     'Iced', 
     'Blended', 
   ];
+  console.log(coffeeTypes);
+  console.log(coffeeFlavors);
+  console.log(milkOptions);
+  console.log(tempOptions);
 
   function getRandomChoice(array) {
     const randomIndex = Math.floor(Math.random() * array.length);
@@ -64,7 +68,7 @@ const coffeeTypes = [
     const temperature = getRandomChoice(tempOptions);
 
     // result string
-    const result = `FRESH BREWED: ${tempOptions} ${coffeeFlavors} ${coffeeTypes} with ${milkOptions}`;
+    const result = `FRESH BREWED: ${temperature} ${flavor} ${coffeeType} with ${milk}`;
     document.getElementById('coffee-result').innerHTML = result;
   }
 
