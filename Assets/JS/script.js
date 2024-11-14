@@ -7,30 +7,6 @@ const tempOptionsSelect = document.getElementById("tempOptions").querySelector("
 const milkOptionsSelect = document.getElementById("milkOptions").querySelector("select");
 const flavorOptionsSelect = document.getElementById("flavorOptions").querySelector("select");
 
-// let randomCoffeeType =  ["Espresso", "Latte", "Cappuccino", "Mocha", "Americano"]; // array of coffee types
-
-// function pickRandomCoffee (randomCoffeeType) {
-//     // Get a random index and store it 
-// const randomIndex = Math.floor(Math.random() * randomCoffeeType.length);
-// // Use the random index to access an item in the array
-// const randomCoffee = randomCoffeeType[randomIndex];
-// console.log(randomCoffee);
-// return randomCoffee;
-//  }
-  
-// //  add event listener for the random button 
-//  randomButton.addEventListener("click", () => pickRandomCoffee(randomCoffeeType));
-
-// // object 
-// const coffee = {
-
-//     name: undefined,
-//     temp:  undefined,
-//     milk: undefined,
-//     type: undefined ,
-//     flavors: undefined
-// }
-
 //arrays of coffee types, flavors, milk options, and temperature options
 const coffeeTypes = [
     'Americano', 
@@ -55,6 +31,8 @@ const coffeeTypes = [
     'Iced', 
     'Blended', 
   ];
+
+
   console.log(coffeeTypes);
   console.log(coffeeFlavors);
   console.log(milkOptions);
@@ -73,13 +51,27 @@ const coffeeTypes = [
     const temperature = getRandomChoice(tempOptions);
 
     // result string
-    const result = `FRESH BREWED: ${temperature} ${flavor} ${coffeeType} with ${milk}`;
+    const result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
     document.getElementById('coffee-result').innerHTML = result;
   }
 
   // Event listener to trigger the coffee generation when button is clicked
   document.getElementById('generate-coffee').addEventListener('click', generateCoffee);
 
+  //Utilizes getRandomChoice with the || operator to provide a random choice from the respective array if the option selected is falsy. 
+  // This only occurs if the default option is selected which is Surprise Me!
+  function generateSelectedCoffee() {
+    const coffeeType = coffeeTypeSelect.value || getRandomChoice(coffeeTypes);
+    const temperature = tempOptionsSelect.value || getRandomChoice(tempOptions);
+    const milk = milkOptionsSelect.value || getRandomChoice(milkOptions);
+    const flavor = flavorOptionsSelect.value || getRandomChoice(coffeeFlavors);
+
+    const result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+    document.getElementById('coffee-result').innerHTML = result;
+}
+
+// Event listener for Brew button
+document.getElementById('brewButton').addEventListener('click', generateSelectedCoffee);
 
   // this function should add elements and ammend them to the html page 
   function renderDropdownOptions() {
@@ -90,7 +82,7 @@ const coffeeTypes = [
       
       // Add a default option
       const defaultOption = document.createElement("option");
-      defaultOption.textContent = "Select an option";
+      defaultOption.textContent = "Surprise me!"; //Changed the text here to Surprise me as the default for the drop downs. This looks more fun and friendly than No Preference.
       defaultOption.value = ""; // empty value for default option 
       selectElement.appendChild(defaultOption);
   
@@ -110,10 +102,6 @@ const coffeeTypes = [
     populateSelect(flavorOptionsSelect, coffeeFlavors);  // Fill flavorOptionsSelect with flavor options
   }
 
-
-
-
-
 // Function to show or hide the questionnaire. Questionnaire is hidden by default and displays when the Guide My Coffee Journey button is clicked.
 function toggleQuestionnaire() {
     if (questionnaireSection.classList.contains("hidden")) {
@@ -127,12 +115,13 @@ function toggleQuestionnaire() {
 // EvenListener that displays the Questionnaire when clicking Guide My Coffee Journey!
 helpMePickButton.addEventListener("click", toggleQuestionnaire);
 
+//Commented out the below code. This was providing the error Uncaught SyntaxError: Unexpected identifier 'is' (at script.js:119:6). 
+//It doesn't seem to do anything, I'm assuming this was linked to something previously. Kept the code in comment incase I'm missing something.
 
-// This is for the modal to pop up
-const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
+//This is for the modal to pop up
+// const myModal = document.getElementById('myModal')
+// const myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
-
+// myModal.addEventListener('shown.bs.modal', () => {
+//   myInput.focus()
+// })
