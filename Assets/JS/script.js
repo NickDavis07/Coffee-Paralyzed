@@ -164,14 +164,13 @@ document.getElementById("exampleModal").addEventListener("hidden.bs.modal", func
         selectElement.appendChild(option); // appends option to the dropDown
       });
     }
-  }
-
-  // Populate each dropdown in the questionnaire with relevant options
+    // Populate each dropdown in the questionnaire with relevant options
   populateSelect(coffeeTypeSelect, coffeeTypes);      // Fill coffeeTypeSelect with coffee types
   populateSelect(tempOptionsSelect, tempOptions);      // Fill tempOptionsSelect with temperature options
   populateSelect(milkOptionsSelect, milkOptions);      // Fill milkOptionsSelect with milk options
   populateSelect(flavorOptionsSelect, coffeeFlavors);  // Fill flavorOptionsSelect with flavor options
-}
+  }
+
 
 // Function to show or hide the questionnaire. Questionnaire is hidden by default and displays when the Guide My Coffee Journey button is clicked.
 function toggleQuestionnaire() {
