@@ -98,7 +98,6 @@ document.getElementById("exampleModal").addEventListener("hidden.bs.modal", func
   star.classList.add("bi-star");
 });
 
-  // this function should add elements and ammend them to the html page 
   function renderDropdownOptions() {
     // Define a helper function to populate a dropdown with options
     function populateSelect(selectElement, optionsArray) {
