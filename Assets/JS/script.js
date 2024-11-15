@@ -6,126 +6,174 @@ const coffeeTypeSelect = document.getElementById("coffeeType").querySelector("se
 const tempOptionsSelect = document.getElementById("tempOptions").querySelector("select");
 const milkOptionsSelect = document.getElementById("milkOptions").querySelector("select");
 const flavorOptionsSelect = document.getElementById("flavorOptions").querySelector("select");
+const favoriteButton = document.querySelector("#favButton");
+
+
+// Log the initial state of savedFavorite
 
 //arrays of coffee types, flavors, milk options, and temperature options
 const coffeeTypes = [
-    'Americano', 
-    'Latte', 
-    'Drip Coffee', 
-  ];
+  'Americano',
+  'Latte',
+  'Drip Coffee',
+];
 
-  const coffeeFlavors = [
-    'Vanilla', 
-    'Caramel', 
-    'Chocolate', 
-  ];
+const coffeeFlavors = [
+  'Vanilla',
+  'Caramel',
+  'Chocolate',
+];
 
-  const milkOptions = [
-    'Skim Milk', 
-    '2% Milk', 
-    'Oat Milk', 
-  ];
+const milkOptions = [
+  'Skim Milk',
+  '2% Milk',
+  'Oat Milk',
+];
 
-  const tempOptions = [
-    'Hot', 
-    'Iced', 
-    'Blended', 
-  ];
+const tempOptions = [
+  'Hot',
+  'Iced',
+  'Blended',
+];
 
 
-  console.log(coffeeTypes);
-  console.log(coffeeFlavors);
-  console.log(milkOptions);
-  console.log(tempOptions);
+let savedFavorite = JSON.parse(localStorage.getItem("savedFavorite")) || [];
 
-  function getRandomChoice(array) {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
+
+console.log(coffeeTypes);
+console.log(coffeeFlavors);
+console.log(milkOptions);
+console.log(tempOptions);
+
+function getRandomChoice(array) {
+  const randomIndex = Math.floor(Math.random() * array.length);
+  return array[randomIndex];
+}
+
+// Global variable to store the last generated coffee choice
+let result = "";
+
+// generate random coffee
+function generateCoffee() {
+  const milk = getRandomChoice(milkOptions);
+  const coffeeType = getRandomChoice(coffeeTypes);
+  const flavor = getRandomChoice(coffeeFlavors);
+  const temperature = getRandomChoice(tempOptions);
+
+  // result string
+  result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+  document.getElementById('coffee-result').innerHTML = result; // this is where the result will be displayed 
+
+}
+
+// Event listener to trigger the  random coffee generation when button is clicked
+document.getElementById('generate-coffee').addEventListener('click', generateCoffee);
+
+//  event listenener that will save the add result to favortites array 
+document.getElementById('saveCoffeeBtn').addEventListener('click', () => {
+  if (result) { // Check if result is not an empty string
+    savedFavorite.push(result); // Add result to savedFavorite array
+    localStorage.setItem("savedFavorite", JSON.stringify(savedFavorite)); // Store updated array in local storage
+    alert("Your coffee choice has been saved to favorites!"); // Confirmation message
+    console.log(savedFavorite); // Log the saved favorites to verify
   }
+});
 
-  // Global variable to store the last generated coffee choice
-  let result = "";
+function hideQuestionnaire() {
+  questionnaireSection.classList.add("hidden"); // Hide the entire questionnaire
+}
+function populateFavorites() {
+  hideQuestionnaire();
+  // Get the saved favorites list container (the <ul> or <ol> element)
+  const favoritesList = document.getElementById("favorites-list");
 
-  // generate random coffee
-  function generateCoffee() {
-    const milk = getRandomChoice(milkOptions);
-    const coffeeType = getRandomChoice(coffeeTypes);
-    const flavor = getRandomChoice(coffeeFlavors);
-    const temperature = getRandomChoice(tempOptions);
+  // Clear any existing items in the list (optional)
+  favoritesList.innerHTML = ""; // This will clear the list every time we populate it
 
-    // result string
-    result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
-    document.getElementById('coffee-result').innerHTML = result;
-  }
+  // Loop through each saved favorite and create a list item
+  savedFavorite.forEach((favorite, index) => {
+    const listItem = document.createElement("li");  // Create a new <li> element
+    listItem.textContent = favorite;  // Set the text content of the list item
+    favoritesList.appendChild(listItem);  // Append the list item to the favorites list
+  });
 
-  // Event listener to trigger the coffee generation when button is clicked
-  document.getElementById('generate-coffee').addEventListener('click', generateCoffee);
+  console.log("the fav button was pressed");
+}
 
-  //Utilizes getRandomChoice with the || operator to provide a random choice from the respective array if the option selected is falsy. 
-  // This only occurs if the default option is selected which is Surprise Me!
-  function generateSelectedCoffee() {
-    const coffeeType = coffeeTypeSelect.value || getRandomChoice(coffeeTypes);
-    const temperature = tempOptionsSelect.value || getRandomChoice(tempOptions);
-    const milk = milkOptionsSelect.value || getRandomChoice(milkOptions);
-    const flavor = flavorOptionsSelect.value || getRandomChoice(coffeeFlavors);
+// fav button event listenter 
+ favoriteButton.addEventListener('click', populateFavorites);
 
-    result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
-    document.getElementById('coffee-result').innerHTML = result;
+
+
+//Utilizes getRandomChoice with the || operator to provide a random choice from the respective array if the option selected is falsy. 
+// This only occurs if the default option is selected which is Surprise Me!
+function generateSelectedCoffee() {
+  const coffeeType = coffeeTypeSelect.value || getRandomChoice(coffeeTypes);
+  const temperature = tempOptionsSelect.value || getRandomChoice(tempOptions);
+  const milk = milkOptionsSelect.value || getRandomChoice(milkOptions);
+  const flavor = flavorOptionsSelect.value || getRandomChoice(coffeeFlavors);
+
+  result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+  document.getElementById('coffee-result').innerHTML = result;
 }
 
 // Event listener for Brew button
 document.getElementById('brewButton').addEventListener('click', generateSelectedCoffee);
 
-// Save to local storage when "Save Changes" button is clicked in the modal
+
+
+// // Save to local storage when "Save Changes" button is clicked in the modal
 document.getElementById('saveCoffeeBtn').addEventListener('click', () => {
   if (result) {
-      localStorage.setItem("savedCoffee", result);
-      alert("Your coffee choice has been saved!"); // this is just for funsies we can get rid of it
-      console.log(result) // did this to make sure it was working 
+    localStorage.setItem("savedCoffee", result);
+    //alert("Your coffee choice has been saved!"); // this is just for funsies we can get rid of it
+    console.log(result) // did this to make sure it was working 
   }
 });
 
-  // this function should add elements and ammend them to the html page 
-  function renderDropdownOptions() {
-    // Define a helper function to populate a dropdown with options
-    function populateSelect(selectElement, optionsArray) {
-      // Clear any existing options before adding new ones
-      selectElement.innerHTML = ""; 
-      
-      // Add a default option
-      const defaultOption = document.createElement("option");
-      defaultOption.textContent = "Surprise me!"; //Changed the text here to Surprise me as the default for the drop downs. This looks more fun and friendly than No Preference.
-      defaultOption.value = ""; // empty value for default option 
-      selectElement.appendChild(defaultOption);
-  
-      // Add each option from the optionsArray
-      optionsArray.forEach(optionText => {
-        const option = document.createElement('option');
-        option.value = optionText; // sets the value attribute 
-        option.textContent = optionText; // sets visible text
-        selectElement.appendChild(option); // appends option to the dropDown
-      });
-    }
-  
-    // Populate each dropdown in the questionnaire with relevant options
-    populateSelect(coffeeTypeSelect, coffeeTypes);      // Fill coffeeTypeSelect with coffee types
-    populateSelect(tempOptionsSelect, tempOptions);      // Fill tempOptionsSelect with temperature options
-    populateSelect(milkOptionsSelect, milkOptions);      // Fill milkOptionsSelect with milk options
-    populateSelect(flavorOptionsSelect, coffeeFlavors);  // Fill flavorOptionsSelect with flavor options
+// this function should add elements and ammend them to the html page 
+function renderDropdownOptions() {
+  // Define a helper function to populate a dropdown with options
+  function populateSelect(selectElement, optionsArray) {
+    // Clear any existing options before adding new ones
+    selectElement.innerHTML = "";
+
+    // Add a default option
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Surprise me!"; //Changed the text here to Surprise me as the default for the drop downs. This looks more fun and friendly than No Preference.
+    defaultOption.value = ""; // empty value for default option 
+    selectElement.appendChild(defaultOption);
+
+    // Add each option from the optionsArray
+    optionsArray.forEach(optionText => {
+      const option = document.createElement('option');
+      option.value = optionText; // sets the value attribute 
+      option.textContent = optionText; // sets visible text
+      selectElement.appendChild(option); // appends option to the dropDown
+    });
   }
+
+  // Populate each dropdown in the questionnaire with relevant options
+  populateSelect(coffeeTypeSelect, coffeeTypes);      // Fill coffeeTypeSelect with coffee types
+  populateSelect(tempOptionsSelect, tempOptions);      // Fill tempOptionsSelect with temperature options
+  populateSelect(milkOptionsSelect, milkOptions);      // Fill milkOptionsSelect with milk options
+  populateSelect(flavorOptionsSelect, coffeeFlavors);  // Fill flavorOptionsSelect with flavor options
+}
 
 // Function to show or hide the questionnaire. Questionnaire is hidden by default and displays when the Guide My Coffee Journey button is clicked.
 function toggleQuestionnaire() {
-    if (questionnaireSection.classList.contains("hidden")) {
-        questionnaireSection.classList.remove("hidden");
-    } else {
-        questionnaireSection.classList.add("hidden");
-    }
-    renderDropdownOptions();
+  if (questionnaireSection.classList.contains("hidden")) {
+    questionnaireSection.classList.remove("hidden");
+  } else {
+    questionnaireSection.classList.add("hidden");
+  }
+  renderDropdownOptions();
 }
 
 // EvenListener that displays the Questionnaire when clicking Guide My Coffee Journey!
 helpMePickButton.addEventListener("click", toggleQuestionnaire);
+
+
 
 //Commented out the below code. This was providing the error Uncaught SyntaxError: Unexpected identifier 'is' (at script.js:119:6). 
 //It doesn't seem to do anything, I'm assuming this was linked to something previously. Kept the code in comment incase I'm missing something.
