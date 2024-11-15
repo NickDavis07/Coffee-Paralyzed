@@ -54,7 +54,7 @@ const coffeeTypes = [
     const temperature = getRandomChoice(tempOptions);
 
     // result string
-    result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+    result = `A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
     document.getElementById('coffee-result').innerHTML = result;
   }
 
@@ -69,7 +69,7 @@ const coffeeTypes = [
     const milk = milkOptionsSelect.value || getRandomChoice(milkOptions);
     const flavor = flavorOptionsSelect.value || getRandomChoice(coffeeFlavors);
 
-    result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+    result = `A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
     document.getElementById('coffee-result').innerHTML = result;
 }
 
@@ -78,11 +78,24 @@ document.getElementById('brewButton').addEventListener('click', generateSelected
 
 // Save to local storage when "Save Changes" button is clicked in the modal
 document.getElementById('saveCoffeeBtn').addEventListener('click', () => {
+
+  // This is for the fill in for the star
+  const star = document.getElementById("favoriteStar");
+  star.classList.toggle("filled");
+  star.classList.toggle("bi-star");
+  star.classList.toggle("bi-star-fill");
+  // Saving to Local Storage 
   if (result) {
       localStorage.setItem("savedCoffee", result);
-      alert("Your coffee choice has been saved!"); // this is just for funsies we can get rid of it
       console.log(result) // did this to make sure it was working 
   }
+});
+
+// Reset star when modal is closed
+document.getElementById("exampleModal").addEventListener("hidden.bs.modal", function () {
+  const star = document.getElementById("favoriteStar");
+  star.classList.remove("filled", "bi-star-fill");
+  star.classList.add("bi-star");
 });
 
   // this function should add elements and ammend them to the html page 
