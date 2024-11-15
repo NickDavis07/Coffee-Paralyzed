@@ -37,3 +37,32 @@ main {
 .hidden {
     display: none;
 }
+
+/* Star Stuff */
+
+#favoriteStar {
+    font-size: 1.5em;
+    color: gray;
+    cursor: pointer;
+  }
+  
+  #favoriteStar.filled {
+    color: gold;
+  }
+
+  /* add to faves button styling */
+
+  #saveCoffeeBtn {
+    background-color: transparent; 
+    border: none; 
+    outline: none; 
+    box-shadow: none; 
+    color: inherit; 
+  }
+  
+  #saveCoffeeBtn:focus, #saveCoffeeBtn:hover {
+    background-color: transparent; 
+    box-shadow: none; 
+    color: inherit; 
+  }
+  
