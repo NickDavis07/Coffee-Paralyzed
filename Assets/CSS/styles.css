@@ -65,4 +65,42 @@ main {
     box-shadow: none; 
     color: inherit; 
   }
-  
+  @font-face {
+    font-family: myInter;
+    src: url(../fonts/Inter-ExtraLight200.woff);
+  }
+#mainChoice {
+    /* font-size: 2.5em; */
+    font-family: myInter;
+    font-weight: 200;
+  }
+
+  h2 {
+    max-width: 30%; 
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #middleSection {
+    margin-top: 80px;
+    margin-left: 120px;
+  }
+
+  #caffeine {
+    margin-top: -70px;
+    /* position: absolute; */
+  }
+  #preference {
+    margin-top: 70px;
+    /* position: absolute; */
+  }
+
+  #generate-coffee {
+    margin-left: 50px;
+  }
+
+  #favoritesSection {
+   display: flex;
+   justify-content: center;
+   margin-top: 80px;
+  }
