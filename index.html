@@ -25,15 +25,18 @@
     <!-- Buttons to select pickForMe and helpMePick - 
          initial idea is to select these and depending on selection unhide either the questionnaire or inform drink choice. -->
 
+
         <section id="mainChoice"></section>
           <h1>Are you in line to get a coffee right now and can’t make up your mind?</h1>
 
-          <!-- Button modal-trigger for Wild Card -->
-          <button type="button" id="generate-coffee" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">
-            Wild Card
-          </button>
+    <!-- Button modal-trigger for Wild Card -->
+    <button type="button" id="generate-coffee" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Wild Card
+    </button>
 
+      <ul id="favorites-list">
+
+    </ul>
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -54,6 +57,7 @@
             </div>
           </div>        
           <button id="helpMePick">Customize</button>
+  <button type="button" id="favButton">My Favs</button>
         </section>
     
         <!-- Questionnaire Section with drop down selectors with a class="hidden" which can be used to display this portion when selecting Help Me Pick! 
@@ -71,27 +75,37 @@
               </select>
             </div>
 
-            <label for="tempOptions" class="col-md-2 col-form-label">Temperature:</label>
-            <div class="col-auto" id="tempOptions">
-              <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-              <select class="form-select" id="autoSizingSelect, tempOptions" placeholder="no preference">
-              </select>
-            </div>
+    <section id="questionnaire" class="hidden container">
+      <h2>Brew Your Perfect Blend</h2>
+      <form class="row mb-3">
+        <label for="coffeeType" class="col-md-2 col-form-label">Type Of Coffee:</label>
+        <div class="col-auto" id="coffeeType">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <select class="form-select" id="autoSizingSelect, coffeeType" placeholder="no preference">
+          </select>
+        </div>
 
-            <label for="milkOptions" class="col-auto col-form-label">Milk Options:</label>
-            <div class="col-auto" id="milkOptions">
-              <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-              <select class="form-select" id="autoSizingSelect, milkOptions" placeholder="no preference">
-              </select>
-            </div>
+        <label for="tempOptions" class="col-md-2 col-form-label">Temperature:</label>
+        <div class="col-auto" id="tempOptions">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <select class="form-select" id="autoSizingSelect, tempOptions" placeholder="no preference">
+          </select>
+        </div>
 
-            <label for="flavorOptions" class="col-md-2 col-form-label">Flavors:</label>
-            <div class="col-auto" id="flavorOptions">
-              <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-              <select class="form-select" id="autoSizingSelect, flavorOptions" placeholder="no preference">
-              </select>
-            </div>
-         
+        <label for="milkOptions" class="col-auto col-form-label">Milk Options:</label>
+        <div class="col-auto" id="milkOptions">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <select class="form-select" id="autoSizingSelect, milkOptions" placeholder="no preference">
+          </select>
+        </div>
+
+        <label for="flavorOptions" class="col-md-2 col-form-label">Flavors:</label>
+        <div class="col-auto" id="flavorOptions">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <select class="form-select" id="autoSizingSelect, flavorOptions" placeholder="no preference">
+          </select>
+        </div>
+
         <div class="col-12">
           <!-- Button modal-trigger for Brew -->
           <button type="button" id="brewButton" class="btn btn-light" data-bs-toggle="modal"
@@ -101,6 +115,13 @@
       </div>
       </form>
     </section>
+
+
+    
+    <div id="favorites">
+
+      <ul id="favorites-list"></ul>
+    </div>
 
     <!-- Randomized Result Section with a class="hidden" which can be used to reveal this when selecting Help Me Pick!-->
     <section id="randomResult" class="hidden">
