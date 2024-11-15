@@ -131,6 +131,8 @@ document.getElementById('saveCoffeeBtn').addEventListener('click', () => {
   }
 });
 
+
+
 // this function should add elements and ammend them to the html page 
 function renderDropdownOptions() {
   // Define a helper function to populate a dropdown with options
