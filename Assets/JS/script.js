@@ -43,6 +43,9 @@ const coffeeTypes = [
     return array[randomIndex];
   }
 
+  // Global variable to store the last generated coffee choice
+  let result = "";
+
   // generate random coffee
   function generateCoffee() {
     const milk = getRandomChoice(milkOptions);
@@ -51,7 +54,7 @@ const coffeeTypes = [
     const temperature = getRandomChoice(tempOptions);
 
     // result string
-    const result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+    result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
     document.getElementById('coffee-result').innerHTML = result;
   }
 
@@ -66,12 +69,21 @@ const coffeeTypes = [
     const milk = milkOptionsSelect.value || getRandomChoice(milkOptions);
     const flavor = flavorOptionsSelect.value || getRandomChoice(coffeeFlavors);
 
-    const result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+    result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
     document.getElementById('coffee-result').innerHTML = result;
 }
 
 // Event listener for Brew button
 document.getElementById('brewButton').addEventListener('click', generateSelectedCoffee);
+
+// Save to local storage when "Save Changes" button is clicked in the modal
+document.getElementById('saveCoffeeBtn').addEventListener('click', () => {
+  if (result) {
+      localStorage.setItem("savedCoffee", result);
+      alert("Your coffee choice has been saved!"); // this is just for funsies we can get rid of it
+      console.log(result) // did this to make sure it was working 
+  }
+});
 
   // this function should add elements and ammend them to the html page 
   function renderDropdownOptions() {
