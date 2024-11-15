@@ -21,7 +21,7 @@ Welcome to **Coffee Paralyzed**, a fun and interactive website designed to help 
   - View your random coffee suggestion in the popup modal.  
 
 - **Guide My Coffee Journey**:  
-  - Click **"Help Me Pick"** to open the questionnaire.  
+  - Click **"Customize"** to open the questionnaire.  
   - Select your preferences for coffee type, temperature, milk, and flavor from dropdown menus.  
   - Optionally, choose **"Surprise me!"** to randomize any preference.  
   - Submit your choices and view your custom coffee recommendation in the popup modal.  
@@ -37,7 +37,7 @@ Welcome to **Coffee Paralyzed**, a fun and interactive website designed to help 
 - **HTML**: Structure and content of the website.
 - **CSS**: Custom styles and responsive layout.
 - **JavaScript**: Logic for handling user interactions, random coffee selection, and dynamic content updates.
-- **Bootstrap**: For Modals and some styling.
+- **Bootstrap**: For Modals and additional styling.
 
 ## Code Structure
 
