@@ -37,6 +37,7 @@ const tempOptions = [
 ];
 
 
+
 let savedFavorite = JSON.parse(localStorage.getItem("savedFavorite")) || [];
 
 
@@ -60,10 +61,8 @@ function generateCoffee() {
   const flavor = getRandomChoice(coffeeFlavors);
   const temperature = getRandomChoice(tempOptions);
 
-  // result string
-  result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
-  document.getElementById('coffee-result').innerHTML = result; // this is where the result will be displayed 
-
+  result = `A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+    document.getElementById('coffee-result').innerHTML = result;
 }
 
 // Event listener to trigger the  random coffee generation when button is clicked
@@ -105,6 +104,7 @@ function populateFavorites() {
 
 
 
+
 //Utilizes getRandomChoice with the || operator to provide a random choice from the respective array if the option selected is falsy. 
 // This only occurs if the default option is selected which is Surprise Me!
 function generateSelectedCoffee() {
@@ -113,8 +113,8 @@ function generateSelectedCoffee() {
   const milk = milkOptionsSelect.value || getRandomChoice(milkOptions);
   const flavor = flavorOptionsSelect.value || getRandomChoice(coffeeFlavors);
 
-  result = `Brewed to Perfection: A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
-  document.getElementById('coffee-result').innerHTML = result;
+    result = `A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+    document.getElementById('coffee-result').innerHTML = result;
 }
 
 // Event listener for Brew button
@@ -124,35 +124,46 @@ document.getElementById('brewButton').addEventListener('click', generateSelected
 
 // // Save to local storage when "Save Changes" button is clicked in the modal
 document.getElementById('saveCoffeeBtn').addEventListener('click', () => {
+
+  // This is for the fill in for the star
+  const star = document.getElementById("favoriteStar");
+  star.classList.toggle("filled");
+  star.classList.toggle("bi-star");
+  star.classList.toggle("bi-star-fill");
+  // Saving to Local Storage 
   if (result) {
-    localStorage.setItem("savedCoffee", result);
-    //alert("Your coffee choice has been saved!"); // this is just for funsies we can get rid of it
-    console.log(result) // did this to make sure it was working 
+      localStorage.setItem("savedCoffee", result);
+      console.log(result) // did this to make sure it was working 
   }
 });
 
+// Reset star when modal is closed
+document.getElementById("exampleModal").addEventListener("hidden.bs.modal", function () {
+  const star = document.getElementById("favoriteStar");
+  star.classList.remove("filled", "bi-star-fill");
+  star.classList.add("bi-star");
+});
 
-
-// this function should add elements and ammend them to the html page 
-function renderDropdownOptions() {
-  // Define a helper function to populate a dropdown with options
-  function populateSelect(selectElement, optionsArray) {
-    // Clear any existing options before adding new ones
-    selectElement.innerHTML = "";
-
-    // Add a default option
-    const defaultOption = document.createElement("option");
-    defaultOption.textContent = "Surprise me!"; //Changed the text here to Surprise me as the default for the drop downs. This looks more fun and friendly than No Preference.
-    defaultOption.value = ""; // empty value for default option 
-    selectElement.appendChild(defaultOption);
-
-    // Add each option from the optionsArray
-    optionsArray.forEach(optionText => {
-      const option = document.createElement('option');
-      option.value = optionText; // sets the value attribute 
-      option.textContent = optionText; // sets visible text
-      selectElement.appendChild(option); // appends option to the dropDown
-    });
+  function renderDropdownOptions() {
+    // Define a helper function to populate a dropdown with options
+    function populateSelect(selectElement, optionsArray) {
+      // Clear any existing options before adding new ones
+      selectElement.innerHTML = ""; 
+      
+      // Add a default option
+      const defaultOption = document.createElement("option");
+      defaultOption.textContent = "Surprise me!"; //Changed the text here to Surprise me as the default for the drop downs. This looks more fun and friendly than No Preference.
+      defaultOption.value = ""; // empty value for default option 
+      selectElement.appendChild(defaultOption);
+  
+      // Add each option from the optionsArray
+      optionsArray.forEach(optionText => {
+        const option = document.createElement('option');
+        option.value = optionText; // sets the value attribute 
+        option.textContent = optionText; // sets visible text
+        selectElement.appendChild(option); // appends option to the dropDown
+      });
+    }
   }
 
   // Populate each dropdown in the questionnaire with relevant options
