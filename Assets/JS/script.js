@@ -6,7 +6,9 @@ const coffeeTypeSelect = document.getElementById("coffeeType").querySelector("se
 const tempOptionsSelect = document.getElementById("tempOptions").querySelector("select");
 const milkOptionsSelect = document.getElementById("milkOptions").querySelector("select");
 const flavorOptionsSelect = document.getElementById("flavorOptions").querySelector("select");
+const favoritesSection = document.getElementById("favoritesSection")
 const favoriteButton = document.querySelector("#favButton");
+const favoritesList = document.getElementById("favorites-list");
 
 
 // Log the initial state of savedFavorite
@@ -80,6 +82,7 @@ document.getElementById('saveCoffeeBtn').addEventListener('click', () => {
 function hideQuestionnaire() {
   questionnaireSection.classList.add("hidden"); // Hide the entire questionnaire
 }
+
 function populateFavorites() {
   hideQuestionnaire();
   // Get the saved favorites list container (the <ul> or <ol> element)
@@ -90,18 +93,15 @@ function populateFavorites() {
 
   // Loop through each saved favorite and create a list item
   savedFavorite.forEach((favorite, index) => {
-    // const listItem = document.createElement("li");  // Create a new <li> element
-    // listItem.textContent = favorite;  // Set the text content of the list item
-    // favoritesList.appendChild(listItem);  // Append the list item to the favorites list
 
     // Create card container
     const card = document.createElement("div");
     card.className = "card mb-3 border border-secondary";
 
-     // Add a star icon at the top of the card
-     const star = document.createElement("i");
-     star.className = "bi bi-star-fill text-warning p-2"; // Bootstrap star icon with gold color
-     card.appendChild(star);
+    // Add a star icon at the top of the card
+    const star = document.createElement("i");
+    star.className = "bi bi-star-fill text-warning p-2"; // Bootstrap star icon with gold color
+    card.appendChild(star);
 
     // Create card body
     const cardBody = document.createElement("div");
@@ -113,14 +113,14 @@ function populateFavorites() {
     cardText.textContent = favorite;
 
     // Append to card body and card container
-  cardBody.appendChild(cardText);
-  card.appendChild(cardBody);
+    cardBody.appendChild(cardText);
+    card.appendChild(cardBody);
 
-  // Append card to container
-  favoritesList.appendChild(card);
+    // Append card to container
+    favoritesList.appendChild(card);
   });
 
-  
+
   console.log("the fav button was pressed");
 }
 
@@ -201,24 +201,40 @@ function renderDropdownOptions() {
 function toggleQuestionnaire() {
   if (questionnaireSection.classList.contains("hidden")) {
     questionnaireSection.classList.remove("hidden");
+    favoritesSection.classList.add("hidden");
   } else {
     questionnaireSection.classList.add("hidden");
   }
+
+  //This allows the generated favorites list to be hidden when clicking the Customize Button.
+  if (favoritesList) {
+    favoritesList.innerHTML = ""; // Clears all dynamically generated cards
+  }
+
   renderDropdownOptions();
 }
 
-// EvenListener that displays the Questionnaire when clicking Guide My Coffee Journey!
+function toggleFavorites() {
+  const favoritesList = document.getElementById("favorites-list"); // Parent container of the cards
+
+  if (favoritesSection.classList.contains("hidden")) {
+    favoritesSection.classList.remove("hidden"); // Show the Favorites Section
+    questionnaireSection.classList.add("hidden"); // Hide the Questionnaire Section
+
+    // Ensure cards are re-rendered dynamically if needed
+    populateFavorites();
+  } else {
+    favoritesSection.classList.add("hidden"); // Hide the Favorites Section
+
+    // Clear dynamically generated cards
+    if (favoritesList) {
+      favoritesList.innerHTML = ""; // Removes all dynamically created cards
+    }
+  }
+}
+
+// EvenListener that displays the Questionnaire when clicking Customize
 helpMePickButton.addEventListener("click", toggleQuestionnaire);
 
-
-
-//Commented out the below code. This was providing the error Uncaught SyntaxError: Unexpected identifier 'is' (at script.js:119:6). 
-//It doesn't seem to do anything, I'm assuming this was linked to something previously. Kept the code in comment incase I'm missing something.
-
-//This is for the modal to pop up
-// const myModal = document.getElementById('myModal')
-// const myInput = document.getElementById('myInput')
-
-// myModal.addEventListener('shown.bs.modal', () => {
-//   myInput.focus()
-// })
+// EvenListener that displays the Favorites list when clicking Favorites
+favoriteButton.addEventListener("click", toggleFavorites);

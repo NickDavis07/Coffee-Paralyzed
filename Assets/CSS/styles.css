@@ -43,15 +43,8 @@ h2 {
   width: 20%;
 }
 
-/* added simple addition to make the spacing appear better. Though if we are using Bootstrap for this then can delete */
-/* #mainChoice {
-  padding-top: 10px;
-} */
-
 #questionnaire {
   border: solid;
-  /* added some margin to make it look a little visually better. Though if we are using Bootstrap for this then we can delete */
-  margin-top: 10px;
 }
 
 .btn {
@@ -96,13 +89,6 @@ h2 {
   src: url(../fonts/Inter-ExtraLight200.woff);
 }
 
-/* #mainChoice {
-    /* font-size: 2.5em; 
-    font-family: myInter;
-    font-weight: 200;
-  }
-*/
-
 #funCoffeeStatement {
   margin: 0 auto;
   text-align: center;
@@ -140,11 +126,6 @@ h2 {
 .maintitle {
   max-width: 600px;
 }
-
-/* Some Favorites Styles */
-/* ul{
-    list-style: none;
-  } */
 
 #favorites-list {
   justify-content: center;
