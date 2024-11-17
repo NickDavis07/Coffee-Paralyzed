@@ -10,9 +10,10 @@ main {
   background-color: var(--main);
   min-height: 100vh;
   width: 100%;
-  margin: 0 auto; /* Centers the container horizontally */
-  padding-top: 20px; 
-  padding-bottom: 20px; 
+  margin: 0 auto;
+  /* Centers the container horizontally */
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 header {
@@ -43,9 +44,9 @@ h2 {
 }
 
 /* added simple addition to make the spacing appear better. Though if we are using Bootstrap for this then can delete */
-#mainChoice {
+/* #mainChoice {
   padding-top: 10px;
-}
+} */
 
 #questionnaire {
   border: solid;
@@ -75,34 +76,38 @@ h2 {
 
 /* add to faves button styling */
 
-  #saveCoffeeBtn {
-    background-color: transparent; 
-    border: none; 
-    outline: none; 
-    box-shadow: none; 
-    color: inherit; 
-  }
-  
-  #saveCoffeeBtn:focus, #saveCoffeeBtn:hover {
-    background-color: transparent; 
-    box-shadow: none; 
-    color: inherit; 
-  }
-  @font-face {
-    font-family: myInter;
-    src: url(../fonts/Inter-ExtraLight200.woff);
-  }
+#saveCoffeeBtn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+#saveCoffeeBtn:focus,
+#saveCoffeeBtn:hover {
+  background-color: transparent;
+  box-shadow: none;
+  color: inherit;
+}
+
+@font-face {
+  font-family: myInter;
+  src: url(../fonts/Inter-ExtraLight200.woff);
+}
+
 /* #mainChoice {
     /* font-size: 2.5em; 
     font-family: myInter;
     font-weight: 200;
   }
+*/
 
-  h2 {
-    max-width: 30%; 
-    margin: 0 auto;
-    text-align: center;
-  } */
+#funCoffeeStatement {
+  margin: 0 auto;
+  text-align: center;
+  padding: 2% 0% 2% 0%;
+}
 
 #middleSection {
   /* margin-top: 80px;
@@ -112,61 +117,59 @@ h2 {
   align-items: center;
 }
 
-  #caffeine {
-    margin-top: -70px;
-    /* position: absolute; */
-   } 
-   #preference {
-    margin-top: 70px;
-    /* position: absolute; */
-  } 
+#caffeine {
+  margin-top: -70px;
+  /* position: absolute; */
+}
+
+#preference {
+  margin-top: 70px;
+  /* position: absolute; */
+}
 
 #generate-coffee {
   margin-left: 50px;
 }
 
-  #favoritesSection {
-   display: flex;
-   justify-content: center;
-   margin-top: 80px;
-  }  
+#favoritesSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
 
-  .maintitle{
-    max-width: 600px;
-  }
- 
-  /* Some Favorites Styles */
+.maintitle {
+  max-width: 600px;
+}
 
-  ul{
+/* Some Favorites Styles */
+/* ul{
     list-style: none;
+  } */
+
+#favorites-list {
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card {
+  width: 18rem;
+  font-size: 1.5em;
+}
+
+/* Media Queries */
+
+/* Phone Size */
+@media (max-width: 480px) {
+  #middleSection img {
+    display: none;
+  }
+
+  #favorites-list .card {
+    width: 10rem;
+    font-size: 1.2em;
   }
 
   #favorites-list {
     justify-content: center;
-    gap: 1rem;
   }
-  
-  .card {
-    width: 18rem;
-    font-size: 1.5em;
-  }
-
-  /* Media Queries */
-
-  
-  /* Phone Size */
-  @media (max-width: 480px) {
-    #middleSection img{
-      display: none;
-    }
-    #favorites-list .card{
-      width: 10rem;
-      font-size: 1.2em;
-    }
-    #favorites-list {
-      justify-content: center;
-    }
-  }
-
-  
-
+}
