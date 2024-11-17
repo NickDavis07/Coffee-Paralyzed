@@ -62,7 +62,7 @@ function generateCoffee() {
   const temperature = getRandomChoice(tempOptions);
 
   result = `A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
-    document.getElementById('coffee-result').innerHTML = result;
+  document.getElementById('coffee-result').innerHTML = result;
 }
 
 // Event listener to trigger the  random coffee generation when button is clicked
@@ -125,7 +125,7 @@ function populateFavorites() {
 }
 
 // fav button event listenter 
- favoriteButton.addEventListener('click', populateFavorites);
+favoriteButton.addEventListener('click', populateFavorites);
 
 
 
@@ -138,8 +138,8 @@ function generateSelectedCoffee() {
   const milk = milkOptionsSelect.value || getRandomChoice(milkOptions);
   const flavor = flavorOptionsSelect.value || getRandomChoice(coffeeFlavors);
 
-    result = `A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
-    document.getElementById('coffee-result').innerHTML = result;
+  result = `A ${temperature} ${flavor} ${coffeeType} with ${milk}. Enjoy!`;
+  document.getElementById('coffee-result').innerHTML = result;
 }
 
 // Event listener for Brew button
@@ -157,8 +157,8 @@ document.getElementById('saveCoffeeBtn').addEventListener('click', () => {
   star.classList.toggle("bi-star-fill");
   // Saving to Local Storage 
   if (result) {
-      localStorage.setItem("savedCoffee", result);
-      console.log(result) // did this to make sure it was working 
+    localStorage.setItem("savedCoffee", result);
+    console.log(result) // did this to make sure it was working 
   }
 });
 
@@ -169,32 +169,32 @@ document.getElementById("exampleModal").addEventListener("hidden.bs.modal", func
   star.classList.add("bi-star");
 });
 
-  function renderDropdownOptions() {
-    // Define a helper function to populate a dropdown with options
-    function populateSelect(selectElement, optionsArray) {
-      // Clear any existing options before adding new ones
-      selectElement.innerHTML = ""; 
-      
-      // Add a default option
-      const defaultOption = document.createElement("option");
-      defaultOption.textContent = "Surprise me!"; //Changed the text here to Surprise me as the default for the drop downs. This looks more fun and friendly than No Preference.
-      defaultOption.value = ""; // empty value for default option 
-      selectElement.appendChild(defaultOption);
-  
-      // Add each option from the optionsArray
-      optionsArray.forEach(optionText => {
-        const option = document.createElement('option');
-        option.value = optionText; // sets the value attribute 
-        option.textContent = optionText; // sets visible text
-        selectElement.appendChild(option); // appends option to the dropDown
-      });
-    }
-    // Populate each dropdown in the questionnaire with relevant options
+function renderDropdownOptions() {
+  // Define a helper function to populate a dropdown with options
+  function populateSelect(selectElement, optionsArray) {
+    // Clear any existing options before adding new ones
+    selectElement.innerHTML = "";
+
+    // Add a default option
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Surprise me!"; //Changed the text here to Surprise me as the default for the drop downs. This looks more fun and friendly than No Preference.
+    defaultOption.value = ""; // empty value for default option 
+    selectElement.appendChild(defaultOption);
+
+    // Add each option from the optionsArray
+    optionsArray.forEach(optionText => {
+      const option = document.createElement('option');
+      option.value = optionText; // sets the value attribute 
+      option.textContent = optionText; // sets visible text
+      selectElement.appendChild(option); // appends option to the dropDown
+    });
+  }
+  // Populate each dropdown in the questionnaire with relevant options
   populateSelect(coffeeTypeSelect, coffeeTypes);      // Fill coffeeTypeSelect with coffee types
   populateSelect(tempOptionsSelect, tempOptions);      // Fill tempOptionsSelect with temperature options
   populateSelect(milkOptionsSelect, milkOptions);      // Fill milkOptionsSelect with milk options
   populateSelect(flavorOptionsSelect, coffeeFlavors);  // Fill flavorOptionsSelect with flavor options
-  }
+}
 
 
 // Function to show or hide the questionnaire. Questionnaire is hidden by default and displays when the Guide My Coffee Journey button is clicked.
