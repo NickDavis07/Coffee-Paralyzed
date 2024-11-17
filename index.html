@@ -18,7 +18,7 @@
   <header>
     <!-- Simple header and intro sentence -->
     <h1>Coffee Paralyzed?</h1>
-    <p>Teh quick caffeine solution!</p>
+    <p>The quick caffeine solution!</p>
   </header>
 
   <main>
@@ -26,20 +26,29 @@
          initial idea is to select these and depending on selection unhide either the questionnaire or inform drink choice. -->
 
 
-        <section id="mainChoice"></section>
-          <h1>Are you in line to get a coffee right now and can’t make up your mind?</h1>
+        <section id="mainChoice">  </section>
+          <h2>Are you in line to get a coffee right now and can’t make up your mind?</h2>
+    
 
-    <!-- Button modal-trigger for Wild Card -->
+  <section id ="middleSection">
+    <img src ="Assets/images/Preference.png" id ="preference">     
+    <button id="helpMePick">Customize</button>
+
     <button type="button" id="generate-coffee" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Wild Card
     </button>
-
-      <ul id="favorites-list">
-
-    </ul>
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+    <img src ="Assets/images/Need Caffeine.png" id ="caffeine">
+  </section>
+  <section id="favoritesSection">
+    <button type="button" id="favButton">My Favorites</button>
+    <div id="favorites">
+      <ul id="favorites-list"></ul>
+    </div>
+  </section>
+  
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
               <div class="modal-content">
                 <div class="modal-header">
@@ -56,16 +65,11 @@
               </div>
             </div>
           </div>        
-          <button id="helpMePick">Customize</button>
-  <button type="button" id="favButton">My Favs</button>
-        </section>
     
         <!-- Questionnaire Section with drop down selectors with a class="hidden" which can be used to display this portion when selecting Help Me Pick! 
          Options to be stored in JS. -->
 
-         <!-- All of these random classes like 'row mb-3' and 'col-md-2' call out to Bootstrap styling -->
-         
-      
+         <!-- All of these random classes like 'row mb-3' and 'col-md-2' call out to Bootstrap styling -->      
     <section id="questionnaire" class="hidden container">
       <h2>Brew Your Perfect Blend</h2>
       <form class="row mb-3">
@@ -106,13 +110,6 @@
       </div>
       </form>
     </section>
-
-
-    
-    <div id="favorites">
-
-      <ul id="favorites-list"></ul>
-    </div>
 
     <!-- Randomized Result Section with a class="hidden" which can be used to reveal this when selecting Help Me Pick!-->
     <section id="randomResult" class="hidden">
