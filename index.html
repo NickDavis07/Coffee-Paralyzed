@@ -26,23 +26,26 @@
          initial idea is to select these and depending on selection unhide either the questionnaire or inform drink choice. -->
 
 
-        <section id="mainChoice">  </section>
+        <!-- <section id="mainChoice">  </section> -->
+        <section class="d-flex justify-content-center align-items-center text-center flex-column p-5 mx-auto maintitle">
           <h2>Are you in line to get a coffee right now and can’t make up your mind?</h2>
+        </section>
     
 
   <section id ="middleSection">
-    <img src ="Assets/images/Preference.png" id ="preference">     
-    <button id="helpMePick">Customize</button>
-
-    <button type="button" id="generate-coffee" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <img src ="Assets/images/Preference_processed.png" id ="preference">     
+    <button id="helpMePick" class="btn btn-light">Customize</button>
+    <button type="button" id="generate-coffee" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Wild Card
     </button>
-    <img src ="Assets/images/Need Caffeine.png" id ="caffeine">
+    <img src ="Assets/images/Need Caffeine_processed.png" id ="caffeine">
+  </section>
+  <section id ="middleSection">
+    <button type="button" id="favButton" class="btn btn-light">Favorites</button>
   </section>
   <section id="favoritesSection">
-    <button type="button" id="favButton">My Favorites</button>
     <div id="favorites">
-      <ul id="favorites-list"></ul>
+      <div id="favorites-list" class="d-flex flex-wrap gap-3"></div>
     </div>
   </section>
   
