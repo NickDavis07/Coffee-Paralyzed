@@ -69,8 +69,8 @@ main {
     font-family: myInter;
     src: url(../fonts/Inter-ExtraLight200.woff);
   }
-#mainChoice {
-    /* font-size: 2.5em; */
+/* #mainChoice {
+    /* font-size: 2.5em; 
     font-family: myInter;
     font-weight: 200;
   }
@@ -79,7 +79,7 @@ main {
     max-width: 30%; 
     margin: 0 auto;
     text-align: center;
-  }
+  } */
 
   #middleSection {
     margin-top: 80px;
@@ -89,11 +89,11 @@ main {
   #caffeine {
     margin-top: -70px;
     /* position: absolute; */
-  }
-  #preference {
+   } 
+   #preference {
     margin-top: 70px;
     /* position: absolute; */
-  }
+  } 
 
   #generate-coffee {
     margin-left: 50px;
@@ -103,5 +103,44 @@ main {
    display: flex;
    justify-content: center;
    margin-top: 80px;
+  }  
+
+  .maintitle{
+    max-width: 600px;
   }
+ 
+  /* Some Favorites Styles */
+
+  ul{
+    list-style: none;
+  }
+
+  #favorites-list {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .card {
+    width: 18rem;
+    font-size: 1.5em;
+  }
+
+  /* Media Queries */
+
+  
+  /* Phone Size */
+  @media (max-width: 480px) {
+    #middleSection img{
+      display: none;
+    }
+    #favorites-list .card{
+      width: 10rem;
+      font-size: 1.2em;
+    }
+    #favorites-list {
+      justify-content: center;
+    }
+  }
+
+  
 

@@ -73,7 +73,6 @@ document.getElementById('saveCoffeeBtn').addEventListener('click', () => {
   if (result) { // Check if result is not an empty string
     savedFavorite.push(result); // Add result to savedFavorite array
     localStorage.setItem("savedFavorite", JSON.stringify(savedFavorite)); // Store updated array in local storage
-    alert("Your coffee choice has been saved to favorites!"); // Confirmation message
     console.log(savedFavorite); // Log the saved favorites to verify
   }
 });
@@ -91,11 +90,37 @@ function populateFavorites() {
 
   // Loop through each saved favorite and create a list item
   savedFavorite.forEach((favorite, index) => {
-    const listItem = document.createElement("li");  // Create a new <li> element
-    listItem.textContent = favorite;  // Set the text content of the list item
-    favoritesList.appendChild(listItem);  // Append the list item to the favorites list
+    // const listItem = document.createElement("li");  // Create a new <li> element
+    // listItem.textContent = favorite;  // Set the text content of the list item
+    // favoritesList.appendChild(listItem);  // Append the list item to the favorites list
+
+    // Create card container
+    const card = document.createElement("div");
+    card.className = "card mb-3 border border-secondary";
+
+     // Add a star icon at the top of the card
+     const star = document.createElement("i");
+     star.className = "bi bi-star-fill text-warning p-2"; // Bootstrap star icon with gold color
+     card.appendChild(star);
+
+    // Create card body
+    const cardBody = document.createElement("div");
+    cardBody.className = "card-body";
+
+    // Add text content
+    const cardText = document.createElement("p");
+    cardText.className = "card-text";
+    cardText.textContent = favorite;
+
+    // Append to card body and card container
+  cardBody.appendChild(cardText);
+  card.appendChild(cardBody);
+
+  // Append card to container
+  favoritesList.appendChild(card);
   });
 
+  
   console.log("the fav button was pressed");
 }
 
