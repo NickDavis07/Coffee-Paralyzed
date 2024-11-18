@@ -1,146 +1,156 @@
-:root{
-    --main: #DBC1AA;
-    --beige: #A67B5B;
-    --light-brown: #6F4E37;
-    --red-brown: #633F33;
+:root {
+  --main: #DBC1AA;
+  --beige: #A67B5B;
+  --light-brown: #6F4E37;
+  --red-brown: #633F33;
 
 }
 
 main {
-    background-color: var(--main);
-    min-height: 100vh;
+  background-color: var(--main);
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  /* Centers the container horizontally */
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+header {
+  text-align: center;
+}
+
+h2 {
+  max-width: 30%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@font-face {
+  font-family: myInter;
+  src: url(../fonts/Inter-ExtraLight200.woff);
+}
+
+.boldText {
+  font-weight: bold;
 }
 
 .row {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .form-select {
-    width: 20%;
-}
-
-/* added simple addition to make the spacing appear better. Though if we are using Bootstrap for this then can delete */
-#mainChoice {
-    padding-top:10px;
+  width: 20%;
 }
 
 #questionnaire {
-    border: solid;
-    /* added some margin to make it look a little visually better. Though if we are using Bootstrap for this then we can delete */
-    margin-top: 10px;
+  border: solid;
 }
 
 .btn {
-    margin: 1% 1% 0 0;
+  margin: 1% 1% 0 0;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 /* Star Stuff */
 
 #favoriteStar {
-    font-size: 1.5em;
-    color: gray;
-    cursor: pointer;
-  }
-  
-  #favoriteStar.filled {
-    color: gold;
+  font-size: 1.5em;
+  color: gray;
+  cursor: pointer;
+}
+
+#favoriteStar.filled {
+  color: gold;
+}
+
+/* add to faves button styling */
+
+#saveCoffeeBtn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+#saveCoffeeBtn:focus,
+#saveCoffeeBtn:hover {
+  background-color: transparent;
+  box-shadow: none;
+  color: inherit;
+}
+
+@font-face {
+  font-family: myInter;
+  src: url(../fonts/Inter-ExtraLight200.woff);
+}
+
+#funCoffeeStatement {
+  margin: 0 auto;
+  text-align: center;
+  padding: 2% 0% 2% 0%;
+}
+
+#middleSection {
+  /* margin-top: 80px;
+  margin-left: 120px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#caffeine {
+  margin-top: -70px;
+  /* position: absolute; */
+}
+
+#preference {
+  margin-top: 70px;
+  /* position: absolute; */
+}
+
+#generate-coffee {
+  margin-left: 50px;
+}
+
+#favoritesSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.maintitle {
+  max-width: 600px;
+}
+
+#favorites-list {
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card {
+  width: 18rem;
+  font-size: 1.5em;
+}
+
+/* Media Queries */
+
+/* Phone Size */
+@media (max-width: 480px) {
+  #middleSection img {
+    display: none;
   }
 
-  /* add to faves button styling */
-
-  #saveCoffeeBtn {
-    background-color: transparent; 
-    border: none; 
-    outline: none; 
-    box-shadow: none; 
-    color: inherit; 
-  }
-  
-  #saveCoffeeBtn:focus, #saveCoffeeBtn:hover {
-    background-color: transparent; 
-    box-shadow: none; 
-    color: inherit; 
-  }
-  @font-face {
-    font-family: myInter;
-    src: url(../fonts/Inter-ExtraLight200.woff);
-  }
-/* #mainChoice {
-    /* font-size: 2.5em; 
-    font-family: myInter;
-    font-weight: 200;
-  }
-
-  h2 {
-    max-width: 30%; 
-    margin: 0 auto;
-    text-align: center;
-  } */
-
-  #middleSection {
-    margin-top: 80px;
-    margin-left: 120px;
-  }
-
-  #caffeine {
-    margin-top: -70px;
-    /* position: absolute; */
-   } 
-   #preference {
-    margin-top: 70px;
-    /* position: absolute; */
-  } 
-
-  #generate-coffee {
-    margin-left: 50px;
-  }
-
-  #favoritesSection {
-   display: flex;
-   justify-content: center;
-   margin-top: 80px;
-  }  
-
-  .maintitle{
-    max-width: 600px;
-  }
- 
-  /* Some Favorites Styles */
-
-  ul{
-    list-style: none;
+  #favorites-list .card {
+    width: 10rem;
+    font-size: 1.2em;
   }
 
   #favorites-list {
     justify-content: center;
-    gap: 1rem;
   }
-  
-  .card {
-    width: 18rem;
-    font-size: 1.5em;
-  }
-
-  /* Media Queries */
-
-  
-  /* Phone Size */
-  @media (max-width: 480px) {
-    #middleSection img{
-      display: none;
-    }
-    #favorites-list .card{
-      width: 10rem;
-      font-size: 1.2em;
-    }
-    #favorites-list {
-      justify-content: center;
-    }
-  }
-
-  
-
+}
