@@ -38,10 +38,7 @@ const tempOptions = [
   'Blended',
 ];
 
-
-
 let savedFavorite = JSON.parse(localStorage.getItem("savedFavorite")) || [];
-
 
 console.log(coffeeTypes);
 console.log(coffeeFlavors);

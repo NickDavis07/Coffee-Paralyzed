@@ -3,7 +3,11 @@
   --beige: #A67B5B;
   --light-brown: #6F4E37;
   --red-brown: #633F33;
+}
 
+@font-face {
+  font-family: myInter;
+  src: url(../fonts/Inter-ExtraLight200.woff);
 }
 
 main {
@@ -26,33 +30,8 @@ h2 {
   text-align: center;
 }
 
-@font-face {
-  font-family: myInter;
-  src: url(../fonts/Inter-ExtraLight200.woff);
-}
-
-.boldText {
-  font-weight: bold;
-}
-
-.row {
-  flex-direction: column;
-}
-
-.form-select {
-  width: 20%;
-}
-
 #questionnaire {
   border: solid;
-}
-
-.btn {
-  margin: 1% 1% 0 0;
-}
-
-.hidden {
-  display: none;
 }
 
 /* Star Stuff */
@@ -66,8 +45,6 @@ h2 {
 #favoriteStar.filled {
   color: gold;
 }
-
-/* add to faves button styling */
 
 #saveCoffeeBtn {
   background-color: transparent;
@@ -84,10 +61,7 @@ h2 {
   color: inherit;
 }
 
-@font-face {
-  font-family: myInter;
-  src: url(../fonts/Inter-ExtraLight200.woff);
-}
+/* add to faves button styling */
 
 #funCoffeeStatement {
   margin: 0 auto;
@@ -132,13 +106,32 @@ h2 {
   gap: 1rem;
 }
 
+.boldText {
+  font-weight: bold;
+}
+
+.row {
+  flex-direction: column;
+}
+
+.form-select {
+  width: 20%;
+}
+
+.btn {
+  margin: 1% 1% 0 0;
+}
+
+.hidden {
+  display: none;
+}
+
 .card {
   width: 18rem;
   font-size: 1.5em;
 }
 
 /* Media Queries */
-
 /* Phone Size */
 @media (max-width: 480px) {
   #middleSection img {
