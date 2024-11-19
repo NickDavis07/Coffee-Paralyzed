@@ -6,6 +6,8 @@ Welcome to **Coffee Paralyzed**, a fun and interactive website designed to help 
 
 [View the live site here!](https://nickdavis07.github.io/Coffee-Paralyzed/)
 
+![image](https://github.com/user-attachments/assets/85627305-22a0-4622-8c8c-407e53b7846f)
+
 
 ## Features
 
