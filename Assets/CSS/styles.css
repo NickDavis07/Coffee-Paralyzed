@@ -146,4 +146,8 @@ h2 {
   #favorites-list {
     justify-content: center;
   }
+
+  h2{
+    max-width: 70%;
+  }
 }
